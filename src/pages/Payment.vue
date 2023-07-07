@@ -149,6 +149,7 @@
             align-items: flex-end;
             gap: 60px;
             .title {
+                color: var(--gray-100);
                 flex: 1;
                 display: flex;
                 flex-direction: column;
@@ -204,10 +205,17 @@
                     border-bottom: 0px;
                 }
                 .title {
+                    color: var(--gray-50);
                     font-family: 'Lato', sans-serif;
+                    font-size: 12px;
+                    font-weight: 600;
+                    line-height: 14px;
                 }
                 .info {
+                    color: var(--gray-100);
                     font-size: 22px;
+                    font-weight: 700;
+                    line-height: 28px;
                 }
             }
         }
