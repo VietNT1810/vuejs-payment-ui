@@ -41,11 +41,32 @@
     .el-table__body-wrapper {
         .el-scrollbar {
             .el-table__row {
-                .cell {
-                    padding: 0;
-                    padding-right: 30px;
+                .el-table__cell {
+                    .cell {
+                        padding: 0;
+                        margin-right: 30px;
+                    }
+                    &:last-child {
+                        .cell {
+                            margin-right: 0px;
+                            text-align: center;
+                        }
+                    }
                 }
             }
+        }
+    }
+}
+
+//custom dropdown
+.el-popper {
+    .el-popper__arrow {
+        visibility: hidden;
+    }
+    .el-dropdown-menu {
+        padding: 5px;
+        .el-dropdown-menu__item {
+            padding: 8px 10px;
         }
     }
 }
