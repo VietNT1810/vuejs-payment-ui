@@ -141,7 +141,6 @@
 
             const handleConfirm = async (formEl) => {
                 if (!formEl) return;
-                console.log(formEl);
                 await formEl.validate((valid, fields) => {
                     if (valid) {
                         console.log('submit!');
