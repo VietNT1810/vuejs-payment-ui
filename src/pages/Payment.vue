@@ -32,7 +32,7 @@
                     <SearchIcon />
                 </template>
             </el-input>
-            <BaseSelect class="filter" :options="filterOptions" @select="handleSelect"></BaseSelect>
+            <BaseSelect class="filter" :options="FILTER_OPTIONS" @select="handleSelect"></BaseSelect>
         </div>
         <div class="table">
             <PaymentTable @action="handleAction" :tableData="filteredPayments" />
@@ -47,6 +47,7 @@
     import SearchIcon from '@/assets/icons/SearchIcon.vue';
     import PopupEditPayment from '@/components/popup/PopupEditPayment.vue';
     import { useStore } from 'vuex';
+    import { FILTER_OPTIONS } from '@/constants/filter';
 
     export default {
         emits: ['edit'],
@@ -67,21 +68,6 @@
                 },
                 set(value) {},
             });
-
-            const filterOptions = [
-                {
-                    value: 'all',
-                    label: 'All Products',
-                },
-                {
-                    value: 'html-js-bundle',
-                    label: 'HTML / JS Course Bundle',
-                },
-                {
-                    value: 'digital-marketing',
-                    label: 'Digital Marketing',
-                },
-            ];
 
             const handleSearch = (data) => {
                 searchWord.value = data;
@@ -116,7 +102,7 @@
             return {
                 tabPosition,
                 searchWord,
-                filterOptions,
+                FILTER_OPTIONS,
                 openPopup,
                 filteredPayments,
                 editPayment,
