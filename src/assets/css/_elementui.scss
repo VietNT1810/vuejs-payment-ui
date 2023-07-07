@@ -1,0 +1,51 @@
+//custom input
+.el-input {
+    height: 40px;
+    .el-input__wrapper {
+        .el-input__inner::placeholder {
+            color: var(--gray-50);
+            font-family: Lato;
+            font-size: 14px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 16px;
+        }
+    }
+}
+
+//custom table
+.el-table {
+    .el-table__header-wrapper {
+        .el-table__header {
+            .el-table__cell {
+                padding: 0;
+                .cell {
+                    color: var(--gray-50);
+                    font-family: Inter;
+                    font-size: 10px;
+                    font-style: normal;
+                    font-weight: 700;
+                    line-height: 14px;
+                    text-transform: uppercase;
+                    padding: 0;
+                    margin-bottom: 7px;
+                }
+                &:last-child {
+                    .cell {
+                        text-align: end;
+                    }
+                }
+            }
+        }
+    }
+    .el-table__body-wrapper {
+        .el-scrollbar {
+            .el-table__row {
+                .cell {
+                    padding: 0;
+                    padding-right: 30px;
+                }
+            }
+        }
+    }
+}
