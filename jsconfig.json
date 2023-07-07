@@ -9,5 +9,6 @@
         },
         "lib": ["esnext", "dom", "dom.iterable", "scripthost"],
         "types": ["element-plus/global"]
-    }
+    },
+    "include": ["src/**/*.vue", "src/**/*.js"]
 }

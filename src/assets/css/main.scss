@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+
+@import './elementui';
+
+:root {
+    --gray-0: #f9f9fb;
+    --gray-10: #eaeaef;
+    --gray-25: #dedeeb;
+    --gray-50: #9097ac;
+    --gray-75: #6b7080;
+    --gray-100: #293142;
+    --green-100: #14c8b1;
+    --red-100: #eb5757;
+    --blue-75: #5294ff;
+    --dark-100: #222a3c;
+    --white-100: #ffffff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+}
