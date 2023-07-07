@@ -1,6 +1,6 @@
 <template lang="">
     <el-table class="table" :data="tableData" style="width: 100%">
-        <el-table-column label="Customer" width="250" fixed>
+        <el-table-column label="Customer" width="250">
             <template #default="scope">
                 <div class="customer">
                     <img :src="scope.row.avatar" class="avatar" alt="Customer avatar" />
@@ -47,7 +47,7 @@
                 </div>
             </template>
         </el-table-column>
-        <el-table-column label="Actions" width="50" fixed="right">
+        <el-table-column label="Actions" width="50">
             <template #default="scope">
                 <el-dropdown
                     class="actions"
