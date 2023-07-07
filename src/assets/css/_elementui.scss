@@ -15,41 +15,52 @@
 
 //custom table
 .el-table {
-    .el-table__header-wrapper {
-        .el-table__header {
-            .el-table__cell {
-                padding: 0;
-                .cell {
-                    color: var(--gray-50);
-                    font-family: Inter;
-                    font-size: 10px;
-                    font-style: normal;
-                    font-weight: 700;
-                    line-height: 14px;
-                    text-transform: uppercase;
+    .el-table__inner-wrapper {
+        &::before {
+            content: none;
+        }
+        .el-table__header-wrapper {
+            .el-table__header {
+                .el-table__cell {
                     padding: 0;
-                    margin-bottom: 7px;
-                }
-                &:last-child {
                     .cell {
-                        text-align: end;
+                        color: var(--gray-50);
+                        font-family: Inter;
+                        font-size: 10px;
+                        font-style: normal;
+                        font-weight: 700;
+                        line-height: 14px;
+                        text-transform: uppercase;
+                        padding: 0;
+                        margin-bottom: 7px;
+                    }
+                    &:last-child {
+                        .cell {
+                            text-align: end;
+                        }
                     }
                 }
             }
         }
-    }
-    .el-table__body-wrapper {
-        .el-scrollbar {
-            .el-table__row {
-                .el-table__cell {
-                    .cell {
-                        padding: 0;
-                        margin-right: 30px;
+        .el-table__body-wrapper {
+            .el-scrollbar {
+                .el-table__row {
+                    .el-table__cell {
+                        .cell {
+                            padding: 0;
+                            margin-right: 30px;
+                        }
+                        &:last-child {
+                            .cell {
+                                margin-right: 0px;
+                                text-align: center;
+                            }
+                        }
                     }
                     &:last-child {
-                        .cell {
-                            margin-right: 0px;
-                            text-align: center;
+                        td.el-table__cell,
+                        .el-table th.el-table__cell.is-leaf {
+                            border-bottom: none;
                         }
                     }
                 }
