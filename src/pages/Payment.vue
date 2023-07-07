@@ -35,23 +35,38 @@
             <BaseSelect class="filter" :options="filterOptions" @select="handleSelect"></BaseSelect>
         </div>
         <div class="table">
-            <PaymentTable />
+            <PaymentTable @action="handleAction" :tableData="filteredPayments" />
         </div>
-        <PopupEditPayment />
+        <PopupEditPayment :openPopup="openPopup" @close="handleClosePopup" :editData="editPayment"> </PopupEditPayment>
     </div>
 </template>
 <script>
-    import { ref } from 'vue';
+    import { computed, ref, toRaw } from 'vue';
     import BaseSelect from '@/components/base/BaseSelect.vue';
     import PaymentTable from '@/components/table/PaymentTable.vue';
     import SearchIcon from '@/assets/icons/SearchIcon.vue';
     import PopupEditPayment from '@/components/popup/PopupEditPayment.vue';
+    import { useStore } from 'vuex';
 
     export default {
-        setup(props) {
+        emits: ['edit'],
+        setup(props, { emit }) {
             let tabPosition = ref('subscriptions');
             let searchWord = ref('');
             let filterProduct = ref('all');
+            let openPopup = ref(false);
+            let editPayment = ref(null);
+
+            const store = useStore();
+            let filteredPayments = computed({
+                get() {
+                    return store.getters.searchPayment({
+                        product: filterProduct.value,
+                        searchKeyword: searchWord.value,
+                    });
+                },
+                set(value) {},
+            });
 
             const filterOptions = [
                 {
@@ -76,12 +91,41 @@
                 filterProduct.value = data;
             };
 
+            const handleAction = (command) => {
+                if (command.type == 'edit') {
+                    handleOpenPopupEdit(command.id);
+                }
+                if (command.type == 'delete') {
+                    handleDeletePayment(command.id);
+                }
+            };
+
+            const handleOpenPopupEdit = (editId) => {
+                editPayment.value = editId;
+                openPopup.value = true;
+            };
+
+            const handleDeletePayment = (deleteId) => {
+                store.commit('deletePayment', deleteId);
+            };
+
+            const handleClosePopup = () => {
+                openPopup.value = false;
+            };
+
             return {
                 tabPosition,
                 searchWord,
                 filterOptions,
+                openPopup,
+                filteredPayments,
+                editPayment,
                 handleSearch,
                 handleSelect,
+                handleOpenPopupEdit,
+                handleDeletePayment,
+                handleClosePopup,
+                handleAction,
             };
         },
         components: {
@@ -89,11 +133,13 @@
             PaymentTable,
             SearchIcon,
         },
+        methods: {},
     };
 </script>
 <style lang="scss" scoped>
     .payment {
         width: 60%;
+        min-width: 800px;
         margin: 20px auto;
         border: 1px solid var(--gray-10);
         padding: 25px;
