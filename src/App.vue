@@ -1,13 +1,15 @@
 <template>
-    <Payment />
+    <!-- <Payment /> -->
+    <SearchPage />
 </template>
 
 <script>
-    import Payment from '@/pages/Payment.vue';
+    // import Payment from '@/pages/Payment.vue';
+    import SearchPage from './pages/SearchPage.vue';
     export default {
         setup() {},
         components: {
-            Payment,
+            SearchPage,
         },
     };
 </script>

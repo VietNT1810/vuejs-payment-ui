@@ -15,6 +15,9 @@
     --blue-75: #5294ff;
     --dark-100: #222a3c;
     --white-100: #ffffff;
+
+    --black: #222;
+    --gray: #222222a6;
 }
 
 * {
@@ -24,13 +27,30 @@
 }
 
 body {
-    color: var(--grey-100);
+    color: var(--black);
     font-family: 'Inter', sans-serif;
     font-weight: 400;
-    font-size: 14px;
+    font-size: 13px;
+    overflow-y: scroll;
 }
 
 button {
     border: none;
     background-color: transparent;
+}
+
+// Scrollbar CSS
+html *::-webkit-scrollbar {
+    border-radius: 0;
+    width: 8px;
+}
+
+html *::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background-color: rgba(0, 0, 0, 0.15);
+}
+
+html *::-webkit-scrollbar-track {
+    border-radius: 0;
+    background-color: rgba(0, 0, 0, 0);
 }

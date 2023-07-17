@@ -1,6 +1,7 @@
 import { createStore } from 'vuex';
 import getters from './getters';
 import mutations from './mutations';
+import { COMMENTS, COURSES, EVENTS, MEMBERS, POSTS } from '@/data';
 
 const store = createStore({
     state: {
@@ -71,6 +72,11 @@ const store = createStore({
                 status: 'INACTIVE',
             },
         ],
+        posts: POSTS,
+        comments: COMMENTS,
+        courses: COURSES,
+        events: EVENTS,
+        members: MEMBERS,
     },
     getters,
     mutations,
