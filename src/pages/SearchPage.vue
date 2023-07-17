@@ -8,7 +8,7 @@
             </el-input>
         </div>
         <div class="tips-box">
-            <TipsIcon />
+            <TipsIcon class="tips-icon" />
             <p class="content">
                 To search a post by a particular member, enter <span class="command-example">by: John Doe</span>
             </p>
@@ -52,7 +52,6 @@
                                 v-if="result?.title?.toLowerCase().includes(searchWord.toLowerCase())"
                                 v-html="getHighlightSearchText(result.title, searchWord)"
                             ></p>
-                            <!-- <p v-else class="text">{{ result.title }}</p> -->
                         </div>
                     </div>
                 </el-tab-pane>
@@ -73,10 +72,20 @@
                         </div>
                         <div class="content">
                             <div class="info">
-                                <p class="title title-bold">{{ result.title }}</p>
+                                <p class="title">
+                                    post by <span class="title-bold">{{ result.author.username }}</span>
+                                    <span v-if="!result?.title?.toLowerCase().includes(searchWord.toLowerCase())">
+                                        titled <span class="title-bold">{{ result.title }}</span>
+                                    </span>
+                                </p>
                                 <span class="time">{{ formatDateFromNow(result.time) }}</span>
                             </div>
                             <p class="text-content" v-html="getHighlightSearchText(result.content, searchWord)"></p>
+                            <p
+                                class="text-title"
+                                v-if="result?.title?.toLowerCase().includes(searchWord.toLowerCase())"
+                                v-html="getHighlightSearchText(result.title, searchWord)"
+                            ></p>
                         </div>
                     </div>
                 </el-tab-pane>
@@ -245,6 +254,9 @@
             border-radius: 8px;
             background: #edf7ff;
             margin-bottom: 32px;
+            .tips-icon {
+                min-width: 16px;
+            }
             .command-example {
                 font-weight: 600;
             }
@@ -364,6 +376,12 @@
                     }
                 }
             }
+        }
+    }
+
+    @media only screen and (max-width: 768px) {
+        .search {
+            margin: 0 20px;
         }
     }
 </style>
