@@ -63,9 +63,9 @@ export const COURSES = [
             username: 'Peter Migaly',
             avatar: 'https://i.pravatar.cc/150?u=asdadadad2@pravatar.com',
         },
-        title: 'Open web develop course for beginner',
+        title: 'Open design course for beginner',
         content:
-            'Color theory is the study of how colors affect human perception and emotion. It can help you create designs that are harmonious, attractive, and effective.',
+            'Color theory is the study of how colors affect human perception and emotion. It can help you create something that are harmonious, attractive, and effective.',
         time: '2023-04-18 3:48:44 pm',
     },
     {
@@ -92,6 +92,17 @@ export const EVENTS = [
         content:
             'Layout is the arrangement and organization of the elements in your design, such as text, images, shapes, etc. It can help you create a logical and aesthetic structure for your design.',
         time: '2023-05-18 6:48:44 pm',
+    },
+    {
+        id: 2,
+        author: {
+            username: 'Peter Migaly',
+            avatar: 'https://i.pravatar.cc/150?u=asdadadad2@pravatar.com',
+        },
+        title: 'Designer fair day 2023',
+        content:
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus porttitor consectetur facilisis. Vestibulum pretium placerat enim eu mattis. Quisque dictum.',
+        time: '2023-06-30 6:48:44 pm',
     },
 ];
 
